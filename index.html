@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Teclado Código</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: url("teclado.jpg") no-repeat center;
+  background-size: cover;
+  color: white;
+}
+
+  .pantalla {
+    width: 200px;
+    height: 40px;
+    margin: 20px auto;
+    background: black;
+    color: lime;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  .teclado {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 10px;
+    justify-content: center;
+  }
+
+  button {
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .mensaje {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Introduce el código</h2>
+
+<div class="pantalla" id="pantalla"></div>
+
+<div class="teclado">
+  <button onclick="agregar(1)">1</button>
+  <button onclick="agregar(2)">2</button>
+  <button onclick="agregar(3)">3</button>
+  <button onclick="agregar(4)">4</button>
+  <button onclick="agregar(5)">5</button>
+  <button onclick="agregar(6)">6</button>
+  <button onclick="agregar(7)">7</button>
+  <button onclick="agregar(8)">8</button>
+  <button onclick="agregar(9)">9</button>
+</div>
+
+<div class="mensaje" id="mensaje"></div>
+
+<script>
+let codigo = "";
+const correcto = "2479";
+
+function agregar(numero) {
+  if (codigo.length < 4) {
+    codigo += numero;
+    document.getElementById("pantalla").innerText = codigo;
+  }
+
+  if (codigo.length === 4) {
+    comprobar();
+  }
+}
+
+function comprobar() {
+  if (codigo === correcto) {
+    document.getElementById("mensaje").innerText = "✅ Correcto";
+  } else {
+    document.getElementById("mensaje").innerText = "❌ Incorrecto";
+  }
+
+  setTimeout(() => {
+    codigo = "";
+    document.getElementById("pantalla").innerText = "";
+    document.getElementById("mensaje").innerText = "";
+  }, 2000);
+}
+</script>
+
+</body>
+</html>
