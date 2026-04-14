@@ -7,60 +7,71 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial;
-  background: url("teclado.jpg") no-repeat center;
-  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  background: transparent;
+}
+
+/* CONTENEDOR DE LA IMAGEN */
+.contenedor {
   position: relative;
-  color: white;
+  width: 800px; /* tamaño fijo base */
+  max-width: 90vw;
+}
+
+/* Imagen */
+.contenedor img {
+  width: 100%;
+  display: block;
 }
 
 /* Pantalla */
 .pantalla {
   position: absolute;
-  top: 20%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  height: 100px;
-  background: transparent;
-  color: rgb(255, 255, 255);
-  font-size: 58px;
+  width: 30%;
+  height: 10%;
+  color: white;
+  font-size: 7vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
 }
 
 /* Botones invisibles */
 .boton {
   position: absolute;
-  width: 80px;
-  height: 60px;
+  width: 10%;
+  height: 12%;
   background: transparent;
   border: none;
   cursor: pointer;
 }
 
-/* POSICIONES (ajústalas si hace falta) */
-#b1 { top: 38%; left: 30%; }
-#b2 { top: 45%; left: 42%; }
-#b3 { top: 38%; left: 60%; }
+/* POSICIONES (ahora RELATIVAS a la imagen) */
+#b1 { top: 38%; left: 20%; }
+#b2 { top: 35%; left: 33%; }
+#b3 { top: 35%; left: 58%; }
 
-#b4 { top: 50%; left: 30%; }
-#b5 { top: 50%; left: 42%; }
-#b6 { top: 50%; left: 60%; }
+#b4 { top: 50%; left: 20%; }
+#b5 { top: 48%; left: 33%; }
+#b6 { top: 48%; left: 51%; }
 
-#b7 { top: 65%; left: 30%; }
-#b8 { top: 62%; left: 45%; }
+#b7 { top: 65%; left: 20%; }
+#b8 { top: 65%; left: 43%; }
 #b9 { top: 65%; left: 51%; }
 
 /* Mensaje */
 .mensaje {
   position: absolute;
-  top: 80%;
+  bottom: 15%;
   width: 100%;
   text-align: center;
+  color: white;
   font-size: 24px;
 }
 </style>
@@ -68,22 +79,26 @@ body {
 </head>
 <body>
 
-<div class="pantalla" id="pantalla"></div>
+<div class="contenedor">
+  <img src="teclado.jpg">
 
-<!-- Botones invisibles -->
-<button id="b1" class="boton" onclick="agregar(1)"></button>
-<button id="b2" class="boton" onclick="agregar(2)"></button>
-<button id="b3" class="boton" onclick="agregar(3)"></button>
+  <div class="pantalla" id="pantalla"></div>
 
-<button id="b4" class="boton" onclick="agregar(4)"></button>
-<button id="b5" class="boton" onclick="agregar(5)"></button>
-<button id="b6" class="boton" onclick="agregar(6)"></button>
+  <!-- Botones -->
+  <button id="b1" class="boton" onclick="agregar(1)"></button>
+  <button id="b2" class="boton" onclick="agregar(2)"></button>
+  <button id="b3" class="boton" onclick="agregar(3)"></button>
 
-<button id="b7" class="boton" onclick="agregar(7)"></button>
-<button id="b8" class="boton" onclick="agregar(8)"></button>
-<button id="b9" class="boton" onclick="agregar(9)"></button>
+  <button id="b4" class="boton" onclick="agregar(4)"></button>
+  <button id="b5" class="boton" onclick="agregar(5)"></button>
+  <button id="b6" class="boton" onclick="agregar(6)"></button>
 
-<div class="mensaje" id="mensaje"></div>
+  <button id="b7" class="boton" onclick="agregar(7)"></button>
+  <button id="b8" class="boton" onclick="agregar(8)"></button>
+  <button id="b9" class="boton" onclick="agregar(9)"></button>
+
+  <div class="mensaje" id="mensaje"></div>
+</div>
 
 <script>
 let codigo = "";
@@ -111,7 +126,7 @@ function comprobar() {
     codigo = "";
     document.getElementById("pantalla").innerText = "";
     document.getElementById("mensaje").innerText = "";
-  }, 50000);
+  }, 30000);
 }
 </script>
 
