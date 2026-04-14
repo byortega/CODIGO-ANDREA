@@ -3,64 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <title>Teclado Código</title>
+
 <style>
 body {
+  margin: 0;
   font-family: Arial;
-  text-align: center;
   background: url("teclado.jpg") no-repeat center;
-  background-size: cover;
+  background-size: contain;
+  height: 100vh;
+  position: relative;
   color: white;
 }
 
-  .pantalla {
-    width: 200px;
-    height: 40px;
-    margin: 20px auto;
-    background: black;
-    color: lime;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
+/* Pantalla */
+.pantalla {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100px;
+  background: black;
+  color: lime;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
 
-  .teclado {
-    display: grid;
-    grid-template-columns: repeat(3, 60px);
-    gap: 10px;
-    justify-content: center;
-  }
+/* Botones invisibles */
+.boton {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 
-  button {
-    height: 60px;
-    font-size: 20px;
-    cursor: pointer;
-  }
+/* POSICIONES (ajústalas si hace falta) */
+#b1 { top: 38%; left: 30%; }
+#b2 { top: 45%; left: 42%; }
+#b3 { top: 38%; left: 60%; }
 
-  .mensaje {
-    margin-top: 20px;
-    font-size: 20px;
-  }
+#b4 { top: 50%; left: 30%; }
+#b5 { top: 50%; left: 42%; }
+#b6 { top: 50%; left: 60%; }
+
+#b7 { top: 65%; left: 30%; }
+#b8 { top: 62%; left: 45%; }
+#b9 { top: 65%; left: 51%; }
+
+/* Mensaje */
+.mensaje {
+  position: absolute;
+  top: 80%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
 </style>
+
 </head>
 <body>
 
-<h2>Introduce el código</h2>
-
 <div class="pantalla" id="pantalla"></div>
 
-<div class="teclado">
-  <button onclick="agregar(1)">1</button>
-  <button onclick="agregar(2)">2</button>
-  <button onclick="agregar(3)">3</button>
-  <button onclick="agregar(4)">4</button>
-  <button onclick="agregar(5)">5</button>
-  <button onclick="agregar(6)">6</button>
-  <button onclick="agregar(7)">7</button>
-  <button onclick="agregar(8)">8</button>
-  <button onclick="agregar(9)">9</button>
-</div>
+<!-- Botones invisibles -->
+<button id="b1" class="boton" onclick="agregar(1)"></button>
+<button id="b2" class="boton" onclick="agregar(2)"></button>
+<button id="b3" class="boton" onclick="agregar(3)"></button>
+
+<button id="b4" class="boton" onclick="agregar(4)"></button>
+<button id="b5" class="boton" onclick="agregar(5)"></button>
+<button id="b6" class="boton" onclick="agregar(6)"></button>
+
+<button id="b7" class="boton" onclick="agregar(7)"></button>
+<button id="b8" class="boton" onclick="agregar(8)"></button>
+<button id="b9" class="boton" onclick="agregar(9)"></button>
 
 <div class="mensaje" id="mensaje"></div>
 
@@ -90,7 +111,7 @@ function comprobar() {
     codigo = "";
     document.getElementById("pantalla").innerText = "";
     document.getElementById("mensaje").innerText = "";
-  }, 2000);
+  }, 50000);
 }
 </script>
 
